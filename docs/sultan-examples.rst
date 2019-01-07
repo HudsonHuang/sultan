@@ -207,13 +207,14 @@ Sultan returns a Result object which has **stdout**, **stderr**,
 
 Here is an example that shows how to get the results of a command::
 
-with Sultan.load() as s:
 
-    result = s.yum('install', '-y', 'postgresql')
-    result.stdout # the stdout
-    result.stderr # the stderr
-    result.traceback # the traceback
-    result.rc # the return code
+    with Sultan.load() as s:
+        result = s.yum('install', '-y', 'postgresql')
+        result.stdout # the stdout
+        result.stderr # the stderr
+        result.traceback # the traceback
+        result.rc # the return code
+
 
 **stdout** and **stderr** returns a list, where each element is a line from 
 **stdout** and **stderr**; **rc** is an integer.
@@ -229,9 +230,6 @@ By default python's `subprocess <https://docs.python.org/3/library/subprocess.ht
 executes the program through **/bin/sh** on POSIX systems. In the rare circumstances
 when that's not desired, you can change it with the 'executable' argument while
 loading Sultan with Context.
-
-Here is an example::
-
 
 Here is an example that shows how to get the results of a command::
 
